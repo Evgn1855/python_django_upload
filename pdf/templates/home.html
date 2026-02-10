@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PDF-file uploading</h1>
+    <ul>
+        {% for file in pdf_files %}
+            <h2>{{ file.title }}</h2>
+            {% comment %} <embed src="{{ file.cover.url}}" type ="application/pdf" alt="{{ FilePdf.title}}"> {% endcomment %}
+            <img src="{{ file.cover.url}}" type ="application/images" alt="{{ file.title}}">
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,9 +5,12 @@ from django.conf import settings  # new
 app_name = 'pdf'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('onlypdfs', views.pdf_view, name='pdf'),
-    # path('', views.pdf_view, name='pdf_view'),
-    # path('', views.HomePageView.as_view(), name='home'),
+    # path("name/<int:pdf_id>",
+    #      views.pdf_view1, name='pdf'),
+
+    # http://127.0.0.1:8001/pdf/test
+    path('test', views.test, name='pdf_view'),
+    path('pdf_view1/<int:pdf_id>', views.pdf_view1, name='pdf'),
 ]
 
 if settings.DEBUG:  # new

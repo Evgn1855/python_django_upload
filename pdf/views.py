@@ -2,8 +2,8 @@ from django.shortcuts import render
 # from django.views.generic import ListView
 # from django.http import HttpResponse
 from .models import FilePdf, OnlyPdf
-
-
+from django.http import FileResponse, Http404, HttpResponse
+# from django.core.files.storage import FileSystemStorage
 # class HomePageView(ListView):
 #     model = FilePdf
 #     template_name = 'home.html'
@@ -15,9 +15,23 @@ def index(request):
 # Create your views here.
 
 
-def pdf_view(request):
-    OnlyPdfs = OnlyPdf.objects.all()
-    return render(request, 'pdf_view.html', {'OnlyPdfs': OnlyPdfs})
+def test(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+# def pdf_view(request):
+#     OnlyPdfs = OnlyPdf.objects.all()
+#     return render(request, 'pdf_view.html', {'OnlyPdfs': OnlyPdfs})
+
+
+def pdf_view1(request, pdf_id):
+    try:
+        # name = OnlyPdf.objects.get(
+        #     file='pdf_files/сертификат_гео5_qUemU5o.pdf')
+        name = OnlyPdf.objects.get(id=pdf_id)
+        return FileResponse(open(f'.\media\{name.file}', 'rb'), content_type='application/pdf')
+        # return HttpResponse(f"{name.file}")
+    except FileNotFoundError:
+        raise Http404()
 
 
 # def pdf_view(request):

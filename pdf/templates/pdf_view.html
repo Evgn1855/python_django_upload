@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PDF-file uploading</h1>
+    <ul>
+        {% for file in OnlyPdfs %}
+            <h2>{{ file.title }}</h2>
+            <a href={{ file.file.url}}>Скачать PDF</a>
+            {% comment %} <embed src="{{ file.cover.url}}" type ="application/pdf" alt="{{ FilePdf.title}}"> {% endcomment %}
+            <iframe src="{{ file.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe>
+        {% endfor %}
+    </ul>
+</body>
+</html>

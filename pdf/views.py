@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from django.http import HttpResponse
-from .models import FilePdf
+# from django.views.generic import ListView
+# from django.http import HttpResponse
+from .models import FilePdf, OnlyPdf
 
 
 # class HomePageView(ListView):
@@ -13,6 +13,11 @@ def index(request):
     pdf_files = FilePdf.objects.all()
     return render(request, 'home.html', {'pdf_files': pdf_files})
 # Create your views here.
+
+
+def pdf_view(request):
+    OnlyPdfs = OnlyPdf.objects.all()
+    return render(request, 'pdf_view.html', {'OnlyPdfs': OnlyPdfs})
 
 
 # def pdf_view(request):

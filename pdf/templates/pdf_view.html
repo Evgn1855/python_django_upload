@@ -7,12 +7,14 @@
 </head>
 <body>
     <h1>PDF-file uploading</h1>
+    <p>{{example_pdf.title}}</p>
     <ul>
-        {% for file in OnlyPdfs %}
-            <h2>{{ file.title }}</h2>
-            <a href={{ file.file.url}}>Скачать PDF</a>
+        {% for f in example_pdf %}
+            <h2>{{ f.title }}</h2>
+            <a href="{{ f.file.url }}">Скачать PDF</a>
+            {% comment %} width="800" height="800" {% endcomment %}
             {% comment %} <embed src="{{ file.cover.url}}" type ="application/pdf" alt="{{ FilePdf.title}}"> {% endcomment %}
-            <iframe src="{{ file.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe>
+            {% comment %} <iframe src="{{ example_pdf.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe> {% endcomment %}
         {% endfor %}
     </ul>
 </body>

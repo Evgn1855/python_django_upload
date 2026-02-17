@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # from django.views.generic import ListView
 # from django.http import HttpResponse
-from .models import FilePdf, OnlyPdf
+from .models import FilePdf, OnlyPdf, BuiltInPdf
 from django.http import FileResponse, Http404, HttpResponse
 # from django.core.files.storage import FileSystemStorage
 # class HomePageView(ListView):
@@ -16,7 +16,8 @@ def index(request):
 
 
 def test(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    example_pdf = BuiltInPdf.objects.all()
+    return render(request, 'pdf_view.html', {'example_pdf': example_pdf})
 
 # def pdf_view(request):
 #     OnlyPdfs = OnlyPdf.objects.all()

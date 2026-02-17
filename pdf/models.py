@@ -16,6 +16,14 @@ class FilePdf(models.Model):
 # Create your models here.
 
 
+class BuiltInPdf(models.Model):
+    title = models.TextField()
+    file = models.FileField(upload_to='pdf_files/')
+
+    def __str__(self):
+        return self.title
+
+
 class OnlyPdf(models.Model):
     title = models.TextField()
     file = models.FileField(upload_to='pdf_files/')

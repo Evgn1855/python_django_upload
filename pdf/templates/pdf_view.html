@@ -11,10 +11,10 @@
     <ul>
         {% for f in example_pdf %}
             <h2>{{ f.title }}</h2>
-            <a href="{{ f.file.url }}">Скачать PDF</a>
+            {% comment %} <a href="{{ f.file.url }}">Скачать PDF</a> {% endcomment %}
             {% comment %} width="800" height="800" {% endcomment %}
             {% comment %} <embed src="{{ file.cover.url}}" type ="application/pdf" alt="{{ FilePdf.title}}"> {% endcomment %}
-            {% comment %} <iframe src="{{ example_pdf.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe> {% endcomment %}
+            <iframe src="{{ f.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe>
         {% endfor %}
     </ul>
 </body>

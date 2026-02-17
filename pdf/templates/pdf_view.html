@@ -14,7 +14,8 @@
             {% comment %} <a href="{{ f.file.url }}">Скачать PDF</a> {% endcomment %}
             {% comment %} width="800" height="800" {% endcomment %}
             {% comment %} <embed src="{{ file.cover.url}}" type ="application/pdf" alt="{{ FilePdf.title}}"> {% endcomment %}
-            <iframe src="{{ f.file.url}}" type ="application/pdf" alt="{{ file.title}}" ></iframe>
+            <iframe src="{{ f.file.url}}" width="800" height="800" type ="application/pdf" alt="{{ f.title}}" ></iframe>
+            {% comment %} <embed src="{{ f.file.url}}" width="800" height="800" type ="application/pdf" alt="{{ f.title}}" ></embed> {% endcomment %}
         {% endfor %}
     </ul>
 </body>
